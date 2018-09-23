@@ -1,8 +1,6 @@
 # CME 257 HW 4 - Julia Sets
 
-Due Sunday 10/18/15 by 5pm.  Put your package up on GitHub, and email me the the URL.  I'll verify that the package works on corn@stanford using Julia v0.4.0 (I've compiled that version), so you may wish to try it out there as well.
-
-If you would like to create a different package (e.g. for your own research or interests), you can work on that instead.
+Due Sunday 2/18/18 by midnight.  Send an ipynb to bjnelson@stanford.edu.
 
 ## Julia Sets
 
@@ -24,9 +22,9 @@ Julia sets and the [Mandelbrot set](https://en.wikipedia.org/wiki/Mandelbrot_set
 
 ### Compute if points diverge
 
-In this assignment, you'll write a basic package to allow someone to visualize a Julia set.  We won't worry about finding points on the boundary of S, but the simpler problem of finding points that haven't diverged beyond some given size after some given number of iterations.
+In this assignment, you'll write a function to allow someone to visualize a Julia set.  We won't worry about finding points on the boundary of S, but the simpler problem of finding points that haven't diverged beyond some given size after some given number of iterations.
 
-Your package should export a function that has the following properties:
+You should write a function with the following properties:
 
 Input:
 * R - a rational function on the complex numbers (or just a function).
@@ -40,13 +38,14 @@ Output:
 
 Parameterize your function on a type T (T should be a Real type) that lets you change the precision of your computations.  (the reason: look at how [complex is defined](https://github.com/JuliaLang/julia/blob/master/base/complex.jl))
 
+### Performance
+
+Use some of the things we talked about in class 6 to make your function fast.  There are a couple ways to think about doing this - broadcasting, loop macros, etc.  Use the profiler if you're stuck.
+
+
 ###  Visualize your results
 
-Once you have your function working, try visualizing the array that you produce.  Gadfly's spy() or PyPlot's matshow(p) may be useful.  You may wish to map the values in your array to different colors.
-
-### Complete your package
-
-In your package, include an example in the README, any package dependencies in REQUIRE, and at least one test in your test file (one such test might be to make sure that a fixed point - R(z) = z does not diverge).
+Once you have your function working, visualize the array that you produce.  Try to find some interesting examples.
 
 ## Tips
 
@@ -65,7 +64,7 @@ for i in 1:length(x)
       end
     end
     if A[i,j] == 0 # didn't diverge
-      A[i,j] = escape_tol + 1
+      A[i,j] = n_iter + 1
     end
   end
 end

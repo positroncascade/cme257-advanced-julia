@@ -1,12 +1,10 @@
 # Homework 3
 
-Due Sunday 10/11/15 by 5 pm.
+Due Sunday 2/4/18 by 11:59:59 pm.
 
 ---
 
 In this homework you'll create an IJulia notebook that explores a package, and add it to the class GitHub repository so that others can see what you discovered.
-
-You should already be able to do the Julia part of the homework, and you should be able to do the GitHub portion of the homework after Wednesday's class.
 
 ---
 
